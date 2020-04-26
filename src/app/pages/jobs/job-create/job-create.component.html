@@ -1,0 +1,122 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create a Job</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <section class="clearfix margin-b-14">
+    <fieldset>
+      <legend><h5>Basic Information</h5></legend>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="jobTitle">Title</label>
+          <input type="text" class="form-control" id="jobTitle" placeholder="Enter job title">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="employmentType">Employment Type</label>
+          <select id="employmentType" name="employmentType" class="form-control">
+            <option value="Contractual">Contractual</option>
+            <option value="Internship">Internship</option>
+            <option value="Permanent">Permanent</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="jobCategory">Category</label>
+          <select id="jobCategory" name="jobCategory" class="form-control">
+            <option value="Development">Development</option>
+            <option value="QualityAssurance">Quality Assurance</option>
+            <option value="DevOps">DevOps</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="experienceRequired">Experience Required</label>
+          <input type="number" class="form-control" id="experienceRequired" placeholder="Enter required experience">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="jobLocation">Location</label>
+          <select id="jobLocation" name="jobLocation" class="form-control">
+            <option value="Islamabad">Islamabad</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Karachi">Karachi</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="availableVacancies">Available Vacancies</label>
+          <input type="number" class="form-control" id="availableVacancies" placeholder="Enter available vacancies">
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend><h5>Marking Scheme</h5></legend>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="assignedCriteria">Marking Scheme Assigned</label>
+          <select id="assignedCriteria" name="assignedCriteria" class="form-control">
+            <option
+              value="{{criteria}}"
+              *ngFor="let criteria of markingSchemes"
+            >{{criteria}}</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-4">
+          <br>
+          <button
+            (click)="addScheme()"
+            type="button"
+            class="btn btn-primary create-job-btn"
+          >
+            Add new Scheme
+          </button>
+        </div>
+      </div>
+
+      <div
+        *ngIf="addNewScheme">
+        <div class="form-group">
+          <label for="schemeName">Scheme Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="schemeName"
+            placeholder="Enter scheme title"
+            [(ngModel)]="schemeName"
+            name="schemeName"
+          >
+        </div>
+        <ng2-smart-table
+          [settings]="markingCriteriaSettings"
+          [source]="markingCriteriaSource"
+        ></ng2-smart-table>
+
+        <div class="form-group" style="text-align: center;margin-top: 18px;">
+          <button
+            (click)="submitScheme()"
+            type="button"
+            class="btn btn-primary create-job-btn col-sm-4"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+
+    </fieldset>
+
+    <fieldset>
+      <legend><h5>Job Description</h5></legend>
+      <div class="row">
+        <div class="form-group col-sm-12">
+          <label for="jobTitle">Job Description</label>
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </section>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+</div>

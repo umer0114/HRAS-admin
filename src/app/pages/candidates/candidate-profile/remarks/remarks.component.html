@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">{{'userProfile.remarks' | translate}}</h4>
+  </div>
+  <div class="card-body">
+    <ul class="list-unstyled team-members">
+      <li *ngFor="let user of [1, 2, 3, 4]">
+        <div class="row">
+          <div class="col-md-9">
+            <nb-user
+              name="Muhammad Umer"
+              size="medium"
+              title="Average"
+            ></nb-user>
+          </div>
+          <div class="col-md-3 col-3 text-right">
+            <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

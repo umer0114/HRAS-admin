@@ -1,0 +1,15 @@
+
+<div class="background-white">
+  <button
+    (click)="createJob()"
+    type="button"
+    class="btn btn-primary create-job-btn"
+  >
+    Create a new Job
+  </button>
+  <ng2-smart-table
+    [settings]="settings"
+    [source]="source"
+    (userRowSelect) = "navigateToJobDetailScreen($event)"
+  ></ng2-smart-table>
+</div>

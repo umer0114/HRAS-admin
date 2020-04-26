@@ -1,0 +1,51 @@
+
+<div>
+  <label class="height-50">
+    <span *ngIf="attachments.length > 0; else noAttachmentsFound">Attachments</span>
+    <ng-template #noAttachmentsFound>No Attachments Found.</ng-template>
+  </label>
+  <label class="image-upload-container btn btn-bwm layout-upload">
+    <span>Select Attachment</span>
+    <input #imageInput
+           type="file"
+           (change)="processFile(imageInput)">
+  </label>
+
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Resume Preview</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <iframe src="../../../../assets/attachments/UmerResume.pdf" width="100%" height="800px;"></iframe>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<div *ngIf="selectedFile" class="img-preview-container row">
+  <div *ngFor="let attachment of attachments; let i = index;">
+    <div
+      class="col"
+      style="padding: 8px;text-align: center;"
+      (click)="openFile(attachment, content)">
+      <div style="font-size: 85px; position: relative;"
+           class="ion ion-document">
+        <div
+          class="remove ion ion-close"
+          (click)="removeAttachment(i)"
+        ></div>
+      </div>
+      <div>{{attachment.file.name}}</div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedFile.pending" class="img-loading-overlay">
+    <div class="img-spinning-circle"></div>
+  </div>
+</div>
