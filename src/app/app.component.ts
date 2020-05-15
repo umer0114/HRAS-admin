@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {GlobalConfigurationsService} from "./global-configurations.service";
+import {GlobalConfigurationsService} from './global-configurations.service';
 
 @Component({
   selector: 'hras-app',
@@ -9,8 +9,8 @@ import {GlobalConfigurationsService} from "./global-configurations.service";
 })
 export class AppComponent implements OnInit {
 
-  constructor(private GlobalConfigurationsService: GlobalConfigurationsService, private translate: TranslateService) {
-    GlobalConfigurationsService.setDefaultConfigurations('local');
+  constructor(private globalConfigurationsService: GlobalConfigurationsService, private translate: TranslateService) {
+    globalConfigurationsService.setDefaultConfigurations('local');
     translate.setDefaultLang('en');
     translate.use('en');
   }

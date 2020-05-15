@@ -5,12 +5,12 @@ const confSettings = {
     localHost: 'localhost',
     localProtocol: 'http://',
     localPort: '4200',
-    localPath: '/api/'
-  }
+    localPath: '/api/',
+  },
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GlobalConfigurationsService {
 

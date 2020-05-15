@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {CandidatesService} from "../../../pages/candidates/candidates.service";
+import { Component } from '@angular/core';
+import {CandidatesService} from '../../../pages/candidates/candidates.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 class ImageSnippet {
@@ -12,7 +12,7 @@ class ImageSnippet {
 @Component({
   selector: 'image-upload',
   templateUrl: 'image-upload.component.html',
-  styleUrls: ['image-upload.component.scss']
+  styleUrls: ['image-upload.component.scss'],
 })
 export class ImageUploadComponent {
 
@@ -20,7 +20,7 @@ export class ImageUploadComponent {
   selectedFileName: string;
   attachments: ImageSnippet[] = [];
 
-  constructor(private candidatesService: CandidatesService, private modalService: NgbModal){}
+  constructor(private candidatesService: CandidatesService, private modalService: NgbModal) {}
 
   private onSuccess() {
     this.selectedFile.pending = false;
@@ -44,12 +44,12 @@ export class ImageUploadComponent {
 
       this.selectedFile.pending = true;
       this.candidatesService.uploadImage(this.selectedFile.file).subscribe(
-        (res) => {
+        () => {
           this.onSuccess();
         },
-        (err) => {
+        () => {
           this.onError();
-        })
+        });
     });
 
     reader.readAsDataURL(file);
@@ -61,7 +61,7 @@ export class ImageUploadComponent {
 
   openFile({src, file}, content) {
     this.selectedFileName = file.name;
-    this.modalService.open(content, { size: "xl" });
+    this.modalService.open(content, { size: 'xl' });
     // window.open(src, '_blank');
   }
 }

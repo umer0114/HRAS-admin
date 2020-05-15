@@ -5,31 +5,31 @@ const defaultConfigurations = {
     add: false,
     edit: false,
     delete: false,
-    columnTitle: "Grid Actions"
-  }
+    columnTitle: 'Grid Actions',
+  },
 };
 
 const defaultConfigurationsForActionButtons = {
   actions: {
-    position: 'right'
+    position: 'right',
   },
   edit: {
     editButtonContent: '<i class="ion-edit" title="Edit"></i>',
-      saveButtonContent: '<i class="ion-checkmark" style="font-size: 24px;color: blue;" title="Create"></i>',
-      cancelButtonContent: '<i class="ion-android-cancel" style="font-size: 28px;color: red;" title="Cancel"></i>',
+    saveButtonContent: '<i class="ion-checkmark" style="font-size: 24px;color: blue;" title="Create"></i>',
+    cancelButtonContent: '<i class="ion-android-cancel" style="font-size: 28px;color: red;" title="Cancel"></i>',
   },
   add: {
     addButtonContent: '<i class="ion-plus" title="Add"></i>',
-      createButtonContent: '<i class="ion-checkmark" style="font-size: 24px;color: blue;" title="Create"></i>',
-      cancelButtonContent: '<i class="ion-android-cancel" style="font-size: 28px;color: red;" title="Cancel"></i>',
+    createButtonContent: '<i class="ion-checkmark" style="font-size: 24px;color: blue;" title="Create"></i>',
+    cancelButtonContent: '<i class="ion-android-cancel" style="font-size: 28px;color: red;" title="Cancel"></i>',
   },
   delete: {
-    deleteButtonContent: '<i class="ion-android-cancel" style="font-size: 28px;color: red;" title="Cancel"></i>'
+    deleteButtonContent: '<i class="ion-android-cancel" style="font-size: 28px;color: red;" title="Cancel"></i>',
   },
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class GridConfigurationsService {
@@ -59,8 +59,8 @@ export class GridConfigurationsService {
           },
           resume: {
             title: 'Current Resume',
-          }
-        }
+          },
+        },
       },
       jobs: {
         ...defaultConfigurations,
@@ -82,23 +82,23 @@ export class GridConfigurationsService {
           },
           availableVacancies: {
             title: 'Available Vacancies',
-          }
-        }
+          },
+        },
       },
       markingCriteria: {
         ...defaultConfigurationsForActionButtons,
         columns: {
           id: {
             title: 'ID',
-            filter: false
+            filter: false,
           },
           criteriaName: {
             title: 'Criteria Name',
           },
           totalPoints: {
             title: 'Total Points',
-          }
-        }
+          },
+        },
       },
       shortlistedCandidates: {
         ...defaultConfigurations,
@@ -114,16 +114,16 @@ export class GridConfigurationsService {
           },
           resume: {
             title: 'Current Resume',
-          }
-        }
+          },
+        },
       },
       interviews: {
         ...defaultConfigurations,
         columns: {
           selected: {
             editor: {
-              type: 'checkbox'
-            }
+              type: 'checkbox',
+            },
           },
           candidateName: {
             title: 'Candidate Name',
@@ -139,9 +139,9 @@ export class GridConfigurationsService {
           },
           scheduledDate: {
             title: 'Scheduled date',
-          }
-        }
+          },
+        },
       },
-    }
+    };
   }
 }
